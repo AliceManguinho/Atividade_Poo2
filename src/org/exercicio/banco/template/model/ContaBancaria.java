@@ -74,7 +74,6 @@ public class ContaBancaria {
 		}else {
 			saldo -= valor;
 		}
-		
 	}
 
 	/**
