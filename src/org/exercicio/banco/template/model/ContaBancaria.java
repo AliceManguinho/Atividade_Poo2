@@ -76,6 +76,7 @@ public class ContaBancaria {
 		}
 	}
 
+	
 	/**
 	 * O metodo fechar conta verifica se a conta ja esta inativa, caso esteja a msg
 	 * "Conta ja inativa." deve ser exibida no console. Caso o saldo nao esteja
