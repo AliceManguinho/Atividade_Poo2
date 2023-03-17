@@ -45,7 +45,11 @@ public class ContaBancaria {
 	 * @param valor
 	 */
 	public void depositar(double valor) {
-		
+		if(valor > 0) {
+			this.saldo += valor;
+		}else {
+			System.out.print("Valor invalido para deposito");
+		}
 	}
 
 	/**
@@ -61,7 +65,15 @@ public class ContaBancaria {
 	 * @param valor
 	 */
 	public void sacar(double valor) {
-		
+		if(status != true) {
+			System.out.print("Conta inativa");
+		}else if(valor <= 0) {
+			System.out.print("Valor inválido para saque");
+		}else if(valor > saldo) {
+			System.out.print("Saldo insuficente");
+		}else {
+			saldo -= valor;
+		}
 	}
 
 	/**
@@ -73,7 +85,13 @@ public class ContaBancaria {
 	 * fechar a conta. Utilize System.out.print();
 	 */
 	public void fecharConta() {
-		
+		if(status != true) {
+			System.out.print("Conta ja inativa");
+		}else if(saldo > 0) {
+			System.out.print("Conta com saldo. Nao eh possivel fecha-la.");
+		}else {
+			status=false;
+		}
 	}
 
 	/**
@@ -82,7 +100,9 @@ public class ContaBancaria {
 	 * ativa." deve ser exibida no console. Utilize System.out.print();
 	 */
 	public void reabrirConta() {
-		
+		if(status != true) {
+			status = true;
+		}
 	}
 
 	/**
@@ -100,7 +120,16 @@ public class ContaBancaria {
 	 * @param destino
 	 */
 	public void realizarTransferencia(double quantia, ContaBancaria destino) {
-
+		if(status != true) {
+			System.out.print("Conta de origem inativa.");
+		}else if(destino.status != true) {
+			System.out.print("Conta de destino inativa.");
+		}else if(quantia >= saldo){
+			System.out.print("Saldo insuficiente para transferencia.");
+		}else {
+			saldo -= quantia;
+			destino.saldo += quantia;
+		}
 	}
 
 	public int getNumeroConta() {
