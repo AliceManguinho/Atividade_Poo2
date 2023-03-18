@@ -2,9 +2,9 @@ package org.exercicio.banco.template.model;
 
 /**
 *
-* Nome:
-* Curso:
-* Matrícula:
+* Nome: Alice dos Santos Manguinho da Silva 
+* Curso: IPI, 2°.
+* Matrícula:20222INFIG0035
 * 
 */
 public class ContaBancaria {
@@ -48,7 +48,7 @@ public class ContaBancaria {
 		if(valor > 0) {
 			this.saldo += valor;
 		}else {
-			System.out.print("Valor invalido para deposito");
+			System.out.print("Valor invalido para deposito.");
 		}
 	}
 
@@ -66,11 +66,11 @@ public class ContaBancaria {
 	 */
 	public void sacar(double valor) {
 		if(status != true) {
-			System.out.print("Conta inativa");
+			System.out.print("Conta inativa.");
 		}else if(valor <= 0) {
-			System.out.print("Valor inválido para saque");
+			System.out.print("Valor inválido para saque.");
 		}else if(valor > saldo) {
-			System.out.print("Saldo insuficente");
+			System.out.print("Saldo insuficente.");
 		}else {
 			saldo -= valor;
 		}
@@ -87,7 +87,7 @@ public class ContaBancaria {
 	 */
 	public void fecharConta() {
 		if(status != true) {
-			System.out.print("Conta ja inativa");
+			System.out.print("Conta ja inativa.");
 		}else if(saldo > 0) {
 			System.out.print("Conta com saldo. Nao eh possivel fecha-la.");
 		}else {
